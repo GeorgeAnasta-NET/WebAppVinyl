@@ -188,26 +188,27 @@
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\VinylsController.cs" />
     <Compile Include="Dtos\CartDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907101751289_CreateVinylLabelGenreClasses.cs" />
-    <Compile Include="Migrations\201907101751289_CreateVinylLabelGenreClasses.Designer.cs">
-      <DependentUpon>201907101751289_CreateVinylLabelGenreClasses.cs</DependentUpon>
+    <Compile Include="Migrations\201907271204079_NewMigrationToUse.cs" />
+    <Compile Include="Migrations\201907271204079_NewMigrationToUse.Designer.cs">
+      <DependentUpon>201907271204079_NewMigrationToUse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907101758135_CreateVinylLabelGenreClasses2.cs" />
-    <Compile Include="Migrations\201907101758135_CreateVinylLabelGenreClasses2.Designer.cs">
-      <DependentUpon>201907101758135_CreateVinylLabelGenreClasses2.cs</DependentUpon>
+    <Compile Include="Migrations\201907271241544_AddNullableOrderIdInCart.cs" />
+    <Compile Include="Migrations\201907271241544_AddNullableOrderIdInCart.Designer.cs">
+      <DependentUpon>201907271241544_AddNullableOrderIdInCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907140904106_AddCartModel.cs" />
-    <Compile Include="Migrations\201907140904106_AddCartModel.Designer.cs">
-      <DependentUpon>201907140904106_AddCartModel.cs</DependentUpon>
+    <Compile Include="Migrations\201907301522160_RefactoringCartClass.cs" />
+    <Compile Include="Migrations\201907301522160_RefactoringCartClass.Designer.cs">
+      <DependentUpon>201907301522160_RefactoringCartClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907141203048_AddQuantityInCart.cs" />
-    <Compile Include="Migrations\201907141203048_AddQuantityInCart.Designer.cs">
-      <DependentUpon>201907141203048_AddQuantityInCart.cs</DependentUpon>
+    <Compile Include="Migrations\201907301524561_AddPropertyCartInOrders.cs" />
+    <Compile Include="Migrations\201907301524561_AddPropertyCartInOrders.Designer.cs">
+      <DependentUpon>201907301524561_AddPropertyCartInOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Vinyl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -232,6 +234,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -282,8 +286,9 @@
     <Content Include="Views\Shared\Vinyls.cshtml" />
     <Content Include="Views\Vinyls\Create.cshtml" />
     <Content Include="Views\Vinyls\VinylForm.cshtml" />
-    <Content Include="Views\Vinyls\MyCart.cshtml" />
+    <Content Include="Views\Shared\MyCart.cshtml" />
     <Content Include="Views\Carts\Index.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,17 +307,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907101751289_CreateVinylLabelGenreClasses.resx">
-      <DependentUpon>201907101751289_CreateVinylLabelGenreClasses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907271204079_NewMigrationToUse.resx">
+      <DependentUpon>201907271204079_NewMigrationToUse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907101758135_CreateVinylLabelGenreClasses2.resx">
-      <DependentUpon>201907101758135_CreateVinylLabelGenreClasses2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907271241544_AddNullableOrderIdInCart.resx">
+      <DependentUpon>201907271241544_AddNullableOrderIdInCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907140904106_AddCartModel.resx">
-      <DependentUpon>201907140904106_AddCartModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907301522160_RefactoringCartClass.resx">
+      <DependentUpon>201907301522160_RefactoringCartClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907141203048_AddQuantityInCart.resx">
-      <DependentUpon>201907141203048_AddQuantityInCart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907301524561_AddPropertyCartInOrders.resx">
+      <DependentUpon>201907301524561_AddPropertyCartInOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

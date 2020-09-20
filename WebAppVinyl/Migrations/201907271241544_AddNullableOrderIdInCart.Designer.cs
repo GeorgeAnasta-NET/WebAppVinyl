@@ -7,13 +7,13 @@ namespace WebAppVinyl.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddCartModel : IMigrationMetadata
+    public sealed partial class AddNullableOrderIdInCart : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCartModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNullableOrderIdInCart));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907140904106_AddCartModel"; }
+            get { return "201907271241544_AddNullableOrderIdInCart"; }
         }
         
         string IMigrationMetadata.Source

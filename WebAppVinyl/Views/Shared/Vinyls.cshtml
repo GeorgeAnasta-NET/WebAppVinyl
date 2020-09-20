@@ -32,7 +32,7 @@
                 <td>
                     @Html.ActionLink("Delete", "Delete", "Vinyls", new { id = vinyl.Id }, null)
                     @*@Html.ActionLink("Delete", "Delete", "Vinyls", null, new { @class = "btn btn-primary" })*@
-                    @*<button data-viewer-id="@vinyl.Id" class="btn-link js-delete">Delete</button>*@
+                    @*<button data-vinyl-id="@vinyl.Id" class="btn btn-default btn-sm js-toggle-delete">Delete</button>*@
                 </td>
                 <td> @Html.ActionLink("Details", "Details", "Vinyls", new { id = vinyl.Id }, null)</td>
                 <td><button data-vinyl-id="@vinyl.Id" class="btn btn-default btn-sm pull-right js-toggle-cart">Add To Cart</button></td>
@@ -59,26 +59,11 @@
                             .addClass("btn-info")
                             .text("Added");
                     })
-                    .failed(function () {
+                    .fail(function () {
                         alert("Something Failed")
                     });
             });
-
-
-            //$(".js-toggle-following").click(function (e) {
-            //    var button = $(e.target)
-            //    $.post("/api/followings", { gigArtistId: button.attr("data-followee-id") })
-            //        .done(function () {
-            //            button
-            //                .removeClass("btn-default")
-            //                .addClass("btn-info")
-            //                .text("Following");
-            //        })
-            //        .failed(function () {
-            //            alert("Something Failed")
-            //        });
-            //});
-        });
+        }); debugger;
 
 
     </script>

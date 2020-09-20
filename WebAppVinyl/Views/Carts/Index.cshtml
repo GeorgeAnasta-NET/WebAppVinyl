@@ -7,28 +7,25 @@
 
 <table id="vinyls" class="table table-bordered table-hover">
     <ul>
-            @foreach (var vinyl in Model)
-            {
-                <li>
-                    <div>
-                        <div>@vinyl.Vinyl.Title</div>
-                        <div>@vinyl.Vinyl.Artist</div>
-                        <div>@vinyl.Vinyl.ReleaseYear</div>
-                        <div>@vinyl.Vinyl.Label.Name</div>
-                        <div>@vinyl.Vinyl.Genre.Name</div>
-                        <div>@vinyl.Vinyl.Price  $</div>
+        @foreach (var vinyl in Model)
+        {
+            <li>
+                <div>
+                    <div>@vinyl.Vinyl.Title</div>
+                    <div>@vinyl.Vinyl.Artist</div>
+                    <div>@vinyl.Vinyl.ReleaseYear</div>
+                    <div>@vinyl.Vinyl.Label.Name</div>
+                    <div>@vinyl.Vinyl.Genre.Name</div>
+                    <div>@vinyl.Vinyl.Price  $</div>
 
-                      
-
-                        <div>@Html.ActionLink("How Many Items", "CreateSummary", "Carts", new { id = vinyl.Vinyl.Id }, null)</div>
-                        <span data-vinyl-id="@vinyl.Vinyl.Id" class="btn btn-default btn-sm pull-right js-toggle-cart">
-                            @Html.ActionLink("Remove From Cart", "Delete", "Carts", new { id = vinyl.Vinyl.Id }, null)
-                        </span>
-                    </div>
-                </li>
-            }
-       
-
+                    <div>@Html.ActionLink("How Many Items", "CreateSummary", "Carts", new { id = vinyl.Vinyl.Id }, null)</div>
+                    @*<span data-vinyl-id="@vinyl.Vinyl.Id" class="btn btn-default btn-sm pull-right js-toggle-cart">
+                        @Html.ActionLink("Remove From Cart", "Delete", "Carts", new { id = vinyl.Vinyl.Id }, null)
+                    </span>*@
+                </div>
+            </li>
+        }
     </ul>
 </table>
+
 

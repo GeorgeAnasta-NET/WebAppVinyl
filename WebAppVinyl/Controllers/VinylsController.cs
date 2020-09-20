@@ -161,7 +161,7 @@ namespace WebAppVinyl.Controllers
                 Heading = "Vinyls I am Attending"
             };
 
-            return View(viewModel);
+            return View("MyCart",viewModel);
         }
     }
 }

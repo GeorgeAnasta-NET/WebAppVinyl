@@ -7,13 +7,13 @@ namespace WebAppVinyl.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CreateVinylLabelGenreClasses : IMigrationMetadata
+    public sealed partial class AddPropertyCartInOrders : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateVinylLabelGenreClasses));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddPropertyCartInOrders));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907101751289_CreateVinylLabelGenreClasses"; }
+            get { return "201907301524561_AddPropertyCartInOrders"; }
         }
         
         string IMigrationMetadata.Source

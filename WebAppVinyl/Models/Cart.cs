@@ -9,27 +9,20 @@ namespace WebAppVinyl.Models
 {
     public class Cart
     {
-        [Key]
-        [Column(Order = 1)]
+        public int Id { get; set; }
+        //[Key]
+        //[Column(Order = 1)]
         public int VinylId { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        //[Key]
+        //[Column(Order = 2)]
         public string BuyerId { get; set; }
 
         // navigation properties
         public Vinyl Vinyl { get; set; }
         public ApplicationUser Buyer { get; set; }
 
-        public int Quantity { get; set; }
-
-        public decimal HowManyItems(int quantity)
-        {
-            Quantity = quantity + Quantity;
-            var summary = Vinyl.Price * Quantity;
-
-            return summary;
-        }
-
+        public int? Quantity { get; set; }
+        
     }
 }

@@ -1,0 +1,123 @@
+﻿@model WebAppVinyl.ViewModels.VinylsViewModel
+@{
+    ViewBag.Title = "MyCart";
+}
+
+<h2>My Cart</h2>
+
+
+<table id="vinyls" class="table table-bordered table-hover">
+    <tr>
+        <th>Vinyl</th>
+        <th>Quantity</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var vinyl in Model.VinylToBuy)
+        {
+            <tr>
+                @*<li>@gig.DateTime - @gig.Artist.Name</li>*@
+                @*<div class="">*@
+                <td>
+                    <div>@vinyl.Artist</div>
+                    <div>@vinyl.Title</div>
+                    <div>@vinyl.ReleaseYear</div>
+                    <div>@vinyl.Label.Name</div>
+                    <input id="txt" type="text" name="xValue" value="@vinyl.Price" readonly />
+                    @vinyl.Price $
+                </td>
+                <td>
+                    <input id="txt" name="text" type="text" value="1" />
+                    @*@Html.TextBoxFor(modelItem => vinyl.Quantity, new { type = "number", @Value = vinyl.Quantity, min = "1", @class = "form-control" })*@
+
+                </td>
+                <td><button data-vinyl-id="@vinyl.Id" class="btn btn-default btn-sm pull-right js-toggle-cart">Remove from Cart</button></td>
+            </tr>
+        }
+    </tbody>
+    <tr>
+        <th>
+            <div>Summary</div>
+        </th>
+        <td>
+            <input type="text" name="item_total" value="" class="result" readonly>
+            <input name="summary" type="text" readonly />
+        </td>
+    </tr>
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to Vinyls", "Index", "Vinyls", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Go to Order", "Index", "Orders", null, new { @class = "btn btn-primary" })
+</p>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-cart").click(function (e) {
+                var link = $(e.target);
+
+                var dialog = bootbox.dialog({
+                    title: 'Remove From Cart',
+                    message: "<p>Are you sure to remove this Vinyl?</p>",
+                    size: 'large',
+                    buttons: {
+                        no: {
+                            label: "No!",
+                            className: 'btn-default',
+                            callback: function () {
+                                bootbox.hideAll();
+                            }
+                        },
+                        yes: {
+                            label: "Yes!",
+                            className: 'btn-danger',
+                            callback: function () {
+                                $.ajax({
+                                    url: "/api/carts/" + link.attr("data-vinyl-id"),
+                                    method: "DELETE"
+                                })
+                                    .done(function () {
+                                        link.parents("li").fadeOut(function () {
+                                            $(this).remove();
+                                        });
+                                    })
+                                    .fail(function () {
+                                        alert("Sometihng failed.");
+                                    });
+                            }
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
+
+
+    <script>
+        //$(document).ready(function () {
+
+        //    var x = $('input[name="xValue"]').val();
+        //    var mu = $('input[name="muValue"]').val();
+        //    var total = x * mu;
+
+        //    function calculate() {
+        //        $('.result').html(total);
+        //    }
+        //});
+
+
+            $(document).ready(function (e) {
+                $("input").change(function () {
+                    let sum = 0;
+                    $("input[name=text]").each(function (e) {
+                        sum = sum + parseFloat($(this).val());
+                    });
+                    $(".input[name=summary]").val(sum);
+                });
+            });
+    </script>
+}

@@ -14,6 +14,7 @@ namespace WebAppVinyl.Models
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Label> Labels { get; set; }
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         public ApplicationDbContext()
             : base("WebAppVinylDb", throwIfV1Schema: false)
@@ -31,6 +32,8 @@ namespace WebAppVinyl.Models
                 .HasRequired(c => c.Vinyl)
                 .WithMany()
                 .WillCascadeOnDelete(false);
+
+                
 
             base.OnModelCreating(modelBuilder);
         }

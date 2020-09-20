@@ -33,6 +33,8 @@ namespace WebAppVinyl.Controllers.api
             {
                 VinylId = dto.VinylId,
                 BuyerId = userId
+                //Quantity = dto.Vinyl.Quantity
+
             };
             //add object to attendances DbSet
 
@@ -46,12 +48,15 @@ namespace WebAppVinyl.Controllers.api
         [HttpDelete]
         public void DeleteFromCart(int id)
         {
-            var vinyl = context.Vinyls.SingleOrDefault(v => v.Id == id);
-            if (vinyl == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+            var userId = User.Identity.GetUserId();
 
-            context.Vinyls.Remove(vinyl);
+            var vinylNotWanted = context.Carts
+                .Where(c => c.VinylId == id && c.BuyerId == userId)
+                .SingleOrDefault();
+
+            context.Carts.Remove(vinylNotWanted);
             context.SaveChanges();
+            
         }
     }
 }
